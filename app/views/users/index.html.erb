@@ -1,0 +1,14 @@
+<h3>List of people</h3>
+ <ul class="collection">
+     <% @users.each do |user| %>
+    <li class="collection-item">
+     <span class="title"><strong>Name:</strong> <%= user.name %></span>
+      <p><strong>About:</strong> <%= user.about %></p>
+      <p><strong>Amount of targets: </strong> <%= user.targets.count %></p>
+      <p>
+        <%= link_to 'Visit', user, class: 'btn' %>
+      </p>
+    </li>
+        <% end %>
+  </ul>
+

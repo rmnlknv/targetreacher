@@ -1,0 +1,22 @@
+
+<h1>Targets</h1>
+
+<ul class="collection">
+     <% @targets.each do |target| %>
+    <li class="collection-item">
+     <span class="title"><strong>Target:</strong> <%= target.title %></span><br>
+     <span><strong>Member:</strong> <%= link_to target.user.name, target.user %></span>
+      <p><strong>Description:</strong> <%= target.description %></p>
+      <p>
+        <%= link_to 'Visit', target, class: 'btn' %>
+      </p>
+
+    </li>
+        <% end %>
+  </ul>
+
+
+
+
+
+<%= link_to 'New Target', new_target_path, class: 'btn' %>

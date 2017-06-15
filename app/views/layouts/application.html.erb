@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+  </head>
+
+  <body>
+
+
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Target Reacher</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav" style="z-index: 999;">
+        <% if user_signed_in? %> 
+          <li class="flow-text" style="color: black; margin: auto; padding-left: 32px;">Hello, <%= current_user.name %></li>
+          <div class="divider"></div>
+          <li><a href="/personal">My Targets</a></li>
+          <li><a href="/users">All Members</a></li>
+          <li><a href="/targets">Hot targets</a></li>
+          <div class="divider"></div>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contacts">Contacts</a></li>
+          <div class="divider"></div>
+          <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><a href="/users/sign_in">Log in</a></li>
+          <li><a href="/users/sign_up">Registration</a></li>
+          <div class="divider"></div>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <% end %>
+
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+
+      <div class="row center">
+
+          <%= yield %>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+   
+  <script>
+  (function($){
+  $(function(){
+
+    $('.button-collapse').sideNav();
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+
+</script>
+  </body>
+</html>

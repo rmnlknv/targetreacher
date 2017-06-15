@@ -1,0 +1,38 @@
+  <div class="row">
+      <div class="col s12 flow-text blue lighten-2"><h4>Target</h4> <h5><%= @target.title %></h5></div>
+      <div class="col s12 flow-text"><h5>Description</h5> <%= @target.description %></div>
+      <div class="col s12 flow-text"><strong>Targeted by </strong><%= link_to @target.user.name, @target.user %></div>
+   </div>
+
+
+<div class="row">
+<div class="col s12"><h5>Comments</h5></div>
+
+<% @target.comments.each do |comment| %>
+ <ul class="collection">
+    <li class="collection-item">
+     <span class="title"><%= comment.user.name %></span>
+      <p><%= comment.message %></p>
+    </li>
+  </ul>
+<% end %>
+</div>
+
+
+
+
+<p>
+  <h5>New comment</h5>
+       <%= form_for [@comment] do |f| %>
+           <div class="form-group">
+             <%= f.text_area :message, class: "materialize-textarea" %>
+           </div>
+           <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+           <%= f.text_field :target_id, value: @target.id, type: "hidden" %>
+           <div class="form-group text-center">
+             <%= f.submit "POST", class: "btn" %>
+           </div>
+      <% end %>
+</p>
+
+<%= link_to 'Back', @target.user, class: "btn"  %>

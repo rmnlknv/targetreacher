@@ -1,0 +1,17 @@
+<%= form_for(target) do |f| %>
+
+  <div class="field">
+    <%= f.label :title, class: 'flow-text' %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, class: 'flow-text' %>
+    <%= f.text_area :description, class: 'materialize-textarea' %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit nil, class: 'waves-effect waves-light btn' %>
+  </div>
+<% end %>

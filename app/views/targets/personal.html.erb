@@ -1,0 +1,15 @@
+<h3>My Targets</h3>
+ <ul class="collection">
+     <% current_user.targets.each do |target| %>
+    <li class="collection-item">
+     <span class="title"><strong>Target:</strong> <%= target.title %></span>
+      <p><strong>Description:</strong> <%= target.description %></p>
+      <p>
+        <%= link_to 'Visit', target, class: 'btn' %> <%= link_to 'Edit', edit_target_path(target), class: 'btn' %> <%= link_to 'Delete', target, method: :delete, class: 'btn', data: { confirm: 'Are you sure?' } %>
+      </p>
+    </li>
+        <% end %>
+  </ul>
+
+<br>
+<%= link_to 'New Target', new_target_path, class: 'btn' %>
