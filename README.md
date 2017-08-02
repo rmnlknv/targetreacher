@@ -1,24 +1,5 @@
-# README
+== Description
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Simple CRUD that implements list of targets and comments. Other people can observe targets and comment them in order to support.
+Project is incomplete since it doesn't have any validations and others. 
+Main purpose of this project was trying css framework "Materialize" by Google. So, this web app completely looks like an android application.
